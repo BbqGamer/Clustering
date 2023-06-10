@@ -1,6 +1,9 @@
 # Clustering assignment
 Poznań University of Technology assignment for Data Mining class
 
+## Dataset
+https://www.kaggle.com/competitions/tabular-playground-series-jul-2022/overview
+
 ## Set up
 Create virtual environment and install dependencies:
 ```bash
