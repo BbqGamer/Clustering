@@ -2,9 +2,6 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 
-# DEPS data/data.csv
-# PROD data/data_normalized.csv, plots/normalized_integers.png
-
 df = pd.read_csv('data/data.csv').head(1000)
 integer_cols = df.select_dtypes(include=['int64']).columns
 
