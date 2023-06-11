@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  normalize:
+    cmd: python3 src/normalize.py
+    deps:
+    - path: data/data.csv
+      md5: b36d40ee963b3de7ba78e86d01b4004a
+      size: 43689903
+    - path: src/normalize.py
+      md5: e842efb4dd7e945d035d7d03cb59265e
+      size: 532
+    outs:
+    - path: data/data_normalized.csv
+      md5: 4c2a571962c497e77b52b2bf639d1d40
+      size: 581070
+    - path: plots/normalized_integers.png
+      md5: 1c887a166cbf5fed2a545b8a9f8f8442
+      size: 36270

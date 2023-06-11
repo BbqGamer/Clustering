@@ -1,0 +1,9 @@
+stages:
+  normalize:
+    cmd: python3 src/normalize.py
+    deps:
+    - data/data.csv
+    - src/normalize.py
+    outs:
+    - data/data_normalized.csv
+    - plots/normalized_integers.png
