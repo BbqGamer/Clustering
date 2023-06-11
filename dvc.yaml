@@ -7,3 +7,22 @@ stages:
     outs:
     - data/data_normalized.csv
     - plots/normalized_integers.png
+
+  tuneknn:
+    cmd: python src/tuneknn.py
+    deps:
+    - data/data_normalized.csv
+    - src/tuneknn.py
+    params:
+    - seed
+    - tuneknn.max_k
+    - tuneknn.min_k
+    outs:
+    - metrics/db_scores.json:
+        cache: false
+    - metrics/sil_scores.json:
+        cache: false
+
+plots:
+- metrics/sil_scores.json
+- metrics/db_scores.json
