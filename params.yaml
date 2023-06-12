@@ -1,4 +1,4 @@
 seed: 42
 tuneknn:
   min_k: 2
-  max_k: 10
+  max_k: 50

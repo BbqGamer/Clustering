@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 
-df = pd.read_csv('data/data.csv').head(1000)
+df = pd.read_csv('data/data.csv')
 integer_cols = df.select_dtypes(include=['int64']).columns
 
 scaler = StandardScaler()
