@@ -30,7 +30,7 @@ cosine_sims={'cosine_sims': []}
 eucl_dists={'eucl_dists': []}
 man_dists={'man_dists': []}
 
-best_k=[index+2 for index, value in sorted(enumerate(combined_score), key=lambda x: x[1])[:3]] + [5,10]
+best_k=[index+2 for index, value in sorted(enumerate(combined_score), key=lambda x: x[1])[:3]] + [5,7,10]
 
 for k in best_k:
     model=KMeans(n_clusters=k, n_init="auto", random_state=params['seed'])
