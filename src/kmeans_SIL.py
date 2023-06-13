@@ -63,12 +63,13 @@ for k in best_k:
         k,
         db_score,
         avg_cos_sim,
-        avg_eucl_dist])
+        avg_eucl_dist,
+        avg_man_dist])
 
     np.savetxt(f"metrics/cosine_sims_{k}.txt", cos_sim, fmt="%s")
     np.savetxt(f"metrics/eucl_dists_{k}.txt", eucl_dist, fmt="%s")
     np.savetxt(f"metrics/man_dists_{k}.txt", man_dist, fmt="%s")
 
-metrics_df = pd.DataFrame(kmeans_metrics, columns=['k', 'db_score', 'avg_cos_sim', 'avg_eucl_dist'])
+metrics_df = pd.DataFrame(kmeans_metrics, columns=['k', 'db_score', 'avg_cos_sim', 'avg_eucl_dist', 'avg_man_dist'])
 metrics_df.to_csv('metrics/kmeans_metrics.csv', index=False)
 
