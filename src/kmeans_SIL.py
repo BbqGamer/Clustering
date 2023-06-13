@@ -18,15 +18,19 @@ scores=[(x-min(scores))/(max(scores)-min(scores)) for x in scores]
 
 with open('metrics/db_scores.json') as f:
     json_data=json.load(f)
+    
 scoresdb=[json_data['db_scores'][x]['db_score'] for x in range(len(json_data['db_scores']))] 
 scoresdb=[(x-min(scoresdb))/(max(scoresdb)-min(scoresdb)) for x in scoresdb]
-combined_score=[scores[x]-scoresdb[x] for x in range(len(scores))]
+combined_score=[scores[x]-scoresdb[x]+(x/250) for x in range(len(scores))]
+
 sns.lineplot(y=combined_score, x=range(2,50))
 plt.savefig('plots/combined_score.png')
+
 cosine_sims={'cosine_sims': []}
 eucl_dists={'eucl_dists': []}
 man_dists={'man_dists': []}
-best_k=[index+2 for index, value in sorted(enumerate(combined_score), key=lambda x: x[1])[:5]]
+
+best_k=[index+2 for index, value in sorted(enumerate(combined_score), key=lambda x: x[1])[:3]]
 
 for k in best_k:
     model=KMeans(n_clusters=k, n_init="auto", random_state=params['seed'])
