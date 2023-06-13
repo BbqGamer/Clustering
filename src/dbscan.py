@@ -1,5 +1,5 @@
 from sklearn.cluster import DBSCAN
-from sklearn.metrics import silhouette_score
+from sklearn.metrics import silhouette_score, davies_bouldin_score
 import numpy as np
 import pandas as pd
 import sys
@@ -18,9 +18,13 @@ min_samples = int(sys.argv[2])
 dbscan = DBSCAN(eps=eps, min_samples=min_samples)
 labels = dbscan.fit_predict(df)
 
-if np.unique(labels).shape[0] > 1:
-    score = silhouette_score(df, labels)
+num_clusters = np.unique(labels).shape[0]
+if num_clusters > 1:
+    sil_score = silhouette_score(df, labels)
 else:
-    score = -1
+    sil_score = -1
 
-print(f"eps: {eps}, min_samples: {min_samples}, silhouette score: {score}")
+db_score = davies_bouldin_score(df, labels) 
+
+
+print(f"eps: {eps}, min_samples: {min_samples}, number of clusters: {num_clusters} silhouette score: {sil_score}, db_score: {db_score}")
