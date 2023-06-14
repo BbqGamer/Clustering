@@ -82,4 +82,4 @@ for x in range(len(eps)):
         
 
 metrics_df = pd.DataFrame(metrics, columns=['min_samples','eps', 'db_score', 'avg_cos_sim', 'avg_eucl_dist', 'avg_man_dist'])
-metrics_df.to_csv('metrics/kmeans_metrics.csv', index=False)
+metrics_df.to_csv('metrics/dbscan_metrics.csv', index=False)
