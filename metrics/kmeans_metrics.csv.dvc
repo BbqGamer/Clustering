@@ -1,0 +1,4 @@
+outs:
+- md5: 5b5e8fb3cf6511af34c4c7f8dc28078a
+  size: 519
+  path: kmeans_metrics.csv
